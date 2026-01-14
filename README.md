@@ -61,6 +61,10 @@ python ALPR.py
 -Training Platform: Roboflow.
 -Editor: VS Code.
 
+## 6. Project Poster
+You can check our poster below:
+
+![ALPR Poster](ALPR_POSTER.png)
 
 
 
