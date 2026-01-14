@@ -54,3 +54,13 @@ python ALPR.py
 2. Click "Select Image Folder".
 3. Choose the folder containing your test images.
 4. View results live!
+
+## 5.Tools Used
+-Frameworks: Python, OpenCV, PyTorch.
+-Models: Ultralytics YOLOv11, EasyOCR.
+-Training Platform: Roboflow.
+-Editor: VS Code.
+
+
+
+
