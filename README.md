@@ -44,3 +44,10 @@ Ensure you have the following files in the same folder:
 Open your terminal and run:
 ```bash
 pip install opencv-python easyocr ultralytics numpy pillow
+
+### **Step 3: Launch**
+Open your terminal and run:
+```bash
+python ALPR.py
+
+
