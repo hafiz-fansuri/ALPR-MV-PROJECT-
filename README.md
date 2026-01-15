@@ -1,14 +1,20 @@
 ALPR-MV-PROJECT-
 # Automatic License Plate Recognition (ALPR) System
 ## 1. Project Overview
-This project is a GUI-based Machine Vision system designed to detect and recognize Malaysian vehicle license plates. It utilizes a fine-tuned **YOLOv11** model for detection and **EasyOCR** for character recognition, integrated into a pipeline that addresses environmental challenges like low light and motion blur.
+This project presents a GUI-based Machine Vision ALPR system for Malaysian vehicle license plates. The work focuses on a comparative study between a baseline ALPR pipeline and an optimized ALPR pipeline, highlighting performance improvements in detection robustness and OCR accuracy under real-world conditions such as low illumination, glare, and motion blur.
+
+The baseline system uses EasyOCR’s built-in **CRAFT** text detector and **CRNN** recognizer, while the optimized system integrates a fine-tuned **YOLOv11** detector with an enhanced **EasyOCR** pre-processing pipeline.
 
 ## 2. Methodology & Innovation
 
 ### **A. System Pipeline**
-`Input` $\rightarrow$ `YOLOv11 Detection` $\rightarrow$ `Cropping (+10px padding)` $\rightarrow$ `Pre-processing` $\rightarrow$ `EasyOCR` $\rightarrow$ `Output`
+**Baseline ALPR Pipeline**
+`Input` $\rightarrow$ `EasyOCR CRAFT Detection` $\rightarrow$ `CRNN Recognition` $\rightarrow$ `Output`
 
-### **B. Key Innovations**
+**Optimized ALPR Pipeline**
+`Input` $\rightarrow$ `YOLOv11 Detection` $\rightarrow$ `Pre-processing` $\rightarrow$ `EasyOCR` $\rightarrow$ `Post-Processing` $\rightarrow$ `Output`
+
+### **B. Key Innovations in Optimized ALPR**
 1.  **Model Fine-Tuning:**
     * **Base Model:** YOLOv11
     * **Dataset:** Custom dataset of **158 images** (Malaysian plates).
@@ -17,7 +23,7 @@ This project is a GUI-based Machine Vision system designed to detect and recogni
 
 2.  **Advanced Pre-processing (The "Secret Sauce"):**
     Before OCR reads the text, the plate image undergoes:
-    * **Upscaling:** Increases resolution for better clarity.
+    * **Upscaling:** 300% upscale for better clarity.
     * **CLAHE:** Adaptive histogram equalization to fix lighting/glare.
     * **Sharpening:** Enhances character edges.
     * **Otsu's Thresholding:** Converts to binary (black & white) to remove noise.
@@ -27,7 +33,7 @@ This project is a GUI-based Machine Vision system designed to detect and recogni
     * **Spatial Sorting:** Reads text in correct Y-axis order.
 
 ## 3. Results
-* **Detection Rate:** **85%** (Tested on Week 12 Dataset).
+* **Detection Rate:** **85%** (Tested on Week 12 Dataset of 100 images).
 * **Strengths:** Robust detection on clear Malaysian plates; handles angled views well.
 * **Weaknesses:** OCR accuracy drops on extremely grainy night images or unusual vehicles (e.g., trucks).
 
