@@ -27,13 +27,16 @@ The baseline system uses EasyOCR’s built-in **CRAFT** text detector and **CRNN
     * **CLAHE:** Adaptive histogram equalization to fix lighting/glare.
     * **Sharpening:** Enhances character edges.
     * **Otsu's Thresholding:** Converts to binary (black & white) to remove noise.
+    * **Padding:** Expand the detection box +10px to prevent edge clipping.
+    * **Mag Ratio:** 1.5x mag ratio for better letter recognition.
 
 3.  **Post-Processing:**
     * **Regex Filtering:** Removes special characters, keeping only A-Z and 0-9.
     * **Spatial Sorting:** Reads text in correct Y-axis order.
 
 ## 3. Results
-* **Detection Rate:** **85%** (Tested on Week 12 Dataset of 100 images).
+* **Detection Rate for Optimized ALPR:** **85%** (Tested on Week 12 Dataset of 100 images).
+* **Recognition Rate:** **55%**
 * **Strengths:** Robust detection on clear Malaysian plates; handles angled views well.
 * **Weaknesses:** OCR accuracy drops on extremely grainy night images or unusual vehicles (e.g., trucks).
 
