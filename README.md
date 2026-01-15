@@ -66,7 +66,7 @@ cat << 'EOF' >> README.md
 ## 6. Project Poster
 You can check our poster below:
 
-![ALPR Poster](ALPR_POSTER.png)
+![ALPR Poster](ALPR_Project.png)
 EOF
 
 
